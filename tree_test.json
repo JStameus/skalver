@@ -1,0 +1,30 @@
+{
+    "name": "My cool tree",
+    "skills": [
+        {
+                "name": "Programming",
+                "disciplines": null,
+                "points": 21,
+                "nodes": [
+                    {"text": "The difference between a signed and an unsigned integer...", "pointValue": 3, "tags": ["memory", "rust", "variables"]},
+                    {"text": "Strings are actually objects?", "pointValue": 4, "tags": ["objects", "datatypes", "variables"]}
+                ]
+        },
+        {
+                "name": "Cooking",
+                "disciplines": null,
+                "points": 14,
+                "nodes": [
+                    {"text": "You can boil vegetables to make vegetable stock.", "pointValue": 2, "tags": ["vegetables", "soup", "recycling"]}
+                ]
+        },
+        {
+                "name": "Woodworking",
+                "disciplines": null,
+                "points": 6,
+                "nodes": [
+                    {"text": "You can use an axe to chop wood.", "pointValue": 1, "tags": ["dumdum"]}
+                ]
+        }
+    ]
+}

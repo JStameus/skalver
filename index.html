@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Skalver</title>
+		<meta name="description" content="Skalver, a personal development visualization app" />
+		<meta name="author" content="JStameus"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" href="style_app.css"/>
+	</head>
+
+	<body>
+		<section class="window_generic" id="app_container_main">
+            <canvas id="app_viewport" class="window_generic">
+            </canvas>
+            <div id="app_toolbar">
+                <button id="button_newNode">New Node</button>
+                <div id="toolbar_skillselector">
+                        <button id="button_prevSkill">Prev</button> 
+                        <div>
+                            <p id="ui_currentSkill">[CURRENT]</p>
+                        </div>
+                        <button id="button_nextSkill">Next</button> 
+                </div>
+                <button id="button_toggleMenu">Menu</button>
+            </div>
+		</section>
+		<script src="app.js"></script>
+	</body>
+</html>
