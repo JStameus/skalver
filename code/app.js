@@ -1,28 +1,4 @@
-// Buttons & Event Listeners
-const newNodeButton = document.querySelector("#button_newNode");
-newNodeButton.addEventListener("click", () => {
-    console.log("Clicked: New Node");
-});
-const prevSkillButton = document.querySelector("#button_prevSkill");
-prevSkillButton.addEventListener("click", () => {
-    console.log("Clicked: Select Previous Skill");
-    cyclePreviousSkill();
-});
-const nextSkillButton = document.querySelector("#button_nextSkill");
-nextSkillButton.addEventListener("click", () => {
-    console.log("Clicked: Select Previous Skill");
-    cycleNextSkill();
-});
-const toggleMenuButton = document.querySelector("#button_toggleMenu");
-toggleMenuButton.addEventListener("click", () => {
-    console.log("Clicked: Toggle Menu");
-});
-
-// UI Elements
-const appViewPort = document.querySelector("#app_viewport");
-const currentSkillDisplay = document.querySelector("#ui_currentSkill");
-
-// Load Skill Tree
+// Variables for handling current skill and skill tree
 var treeData = "";
 var skillList = [];
 var selectedSkill = null;
@@ -35,9 +11,9 @@ function loadTreeFile(fileURL) {
         console.log("Loaded Skill List.");
         selectedSkill = skillList[skillIndex];
         updateToolbarDisplay();
-    }, 500);
+    }, 1000);
 }
-loadTreeFile("./tree_test.json");
+loadTreeFile("../resources/tree_test.json");
 
 // Skill Navigation
 function cycleNextSkill() {
@@ -46,8 +22,7 @@ function cycleNextSkill() {
         skillIndex = 0;
     }
     selectedSkill = skillList[skillIndex];
-    console.log(selectedSkill.name);
-    displayCurrentSkill();
+    console.log(`${selectedSkill.name}: ${selectedSkill.nodes.length} nodes.`);
     updateToolbarDisplay();
 }
 
@@ -57,14 +32,8 @@ function cyclePreviousSkill() {
         skillIndex = (skillList.length - 1);
     }
     selectedSkill = skillList[skillIndex];
-    console.log(selectedSkill.name);
-    displayCurrentSkill();
+    console.log(`${selectedSkill.name}: ${selectedSkill.nodes.length} nodes.`);
     updateToolbarDisplay();
-}
-
-// UI Rendering
-function updateToolbarDisplay() {
-    currentSkillDisplay.innerText = selectedSkill.name;
 }
 
 function createNodeElement(node) {
@@ -97,9 +66,3 @@ function createNodeElement(node) {
     console.log("Added a node.");
 }
 
-function displayCurrentSkill() {
-    for(let i = 0; i < selectedSkill.nodes.length; i++) {
-        console.log("AAAAAAAAAAAAAAAAA");
-        createNodeElement(selectedSkill.nodes[i]);
-    }
-}
