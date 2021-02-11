@@ -35,35 +35,3 @@ function cyclePreviousSkill() {
     console.log(`${selectedSkill.name}: ${selectedSkill.nodes.length} nodes.`);
     updateToolbarDisplay();
 }
-
-// TODO: Should this be removed?
-function createNodeElement(node) {
-    // The list item is the container for the entire "node" object
-    const newListItem = document.createElement("li");
-        
-    // Main text content
-    const newNodeParagraph = document.createElement("p");
-    const newNodePText = document.createTextNode(node.text);
-    newNodeParagraph.appendChild(newNodePText);
-
-    // Point value display
-    const newNodePointBadge = document.createElement("p");
-    const newNodePointNumber = document.createTextNode(node.pointValue);
-    newNodePointBadge.appendChild(newNodePointNumber);
-    
-    // Appending elements to new list item
-    newListItem.appendChild(newNodeParagraph);
-    newListItem.appendChild(newNodePointBadge);
-
-    // Adding tags
-    for(let i = 0; i < node.tags.length; i++) {
-        const newTagElement = document.createElement("h4");
-        const newTagText = document.createTextNode(node.tags[i]);
-        newTagElement.appendChild(newTagText);
-        newListItem.appendChild(newTagElement);
-    }
-
-    appViewPort.appendChild(newListItem);
-    console.log("Added a node.");
-}
-
