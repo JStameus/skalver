@@ -36,6 +36,7 @@ function cyclePreviousSkill() {
     updateToolbarDisplay();
 }
 
+// TODO: Should this be removed?
 function createNodeElement(node) {
     // The list item is the container for the entire "node" object
     const newListItem = document.createElement("li");

@@ -8,13 +8,9 @@ html, body {
     height: 100%;
 }
 
-h2 {
-    color: red;
-}
-
 /* Generic Styling */
 .window_generic {
-    border: 2px solid red;
+    border: 2px solid wheat;
     border-radius: 6px;
     box-shadow: 0 0 12px 1px black;    
 }
@@ -28,20 +24,12 @@ h2 {
 }
 
 #app_viewport {
-   /*position: absolute;
-    margin-left: 1rem;
-   margin-right: 1rem;
-   width: 95%;
-   height: 95%; */
    background-color: black;
    flex: 8
 }
 
 #app_toolbar {
-    background-color: darkgray;
-    border: 2px solid darkseagreen;
-    /* position: fixed;
-    bottom: 0; */
+    background-color: rgb(55, 61, 63);
     flex: 1;
     display: flex;
     flex-direction: row;

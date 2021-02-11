@@ -6,14 +6,14 @@
 		<meta name="description" content="Skalver, a personal development visualization app" />
 		<meta name="author" content="JStameus"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<link rel="stylesheet" href="style_app.css"/>
+		<link rel="stylesheet" type="text/css" href="style_app.css"/>
 	</head>
 
 	<body>
 		<section class="window_generic" id="app_container_main">
             <canvas id="app_viewport" class="window_generic">
             </canvas>
-            <div id="app_toolbar">
+            <div id="app_toolbar" class="window_generic">
                 <button id="button_newNode">New Node</button>
                 <div id="toolbar_skillselector">
                         <button id="button_prevSkill">Prev</button> 
@@ -25,7 +25,6 @@
                 <button id="button_toggleMenu">Menu</button>
             </div>
 		</section>
-        <script src="code/classes_nodeitems.js"></script>
         <script src="code/uimanager.js"></script>
         <script src="code/canvasmanager.js"></script>
 		<script src="code/app.js"></script>
