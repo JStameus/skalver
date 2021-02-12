@@ -23,7 +23,9 @@ function spawnNodeObjects(skillTree) {
 let cameraMoveSpeed = 0.5;
 let cameraXVelocity = 0;
 let cameraYVelocity = 0;
-let cameraSensitivity = 1;
+
+let cameraZoomSpeed = 0.3;
+let cameraZVelocity = 0;
 function controlCamera() {
     window.onkeydown = (e) => {
        if(e.key == "w" || e.key == "W") {
@@ -42,6 +44,14 @@ function controlCamera() {
            console.log("Moving RIGHT");
            cameraXVelocity = cameraMoveSpeed;
        }
+       else if(e.key == "q" || e.key == "Q") {
+           console.log("Zooming OUT"); 
+           cameraZVelocity = cameraZoomSpeed;
+       }
+       else if(e.key == "e" || e.key == "E") {
+           console.log("Zooming IN");
+           cameraZVelocity = -cameraZoomSpeed;
+       }
     }
     window.onkeyup = (e) => {
         console.log("Stop!");
@@ -50,6 +60,9 @@ function controlCamera() {
         }
         else if(e.key == "a" || e.key == "A" || e.key == "d" || e.key == "D") {
             cameraXVelocity = 0;
+        }
+        else if(e.key == "q" || e.key == "Q" || e.key == "e" || e.key == "E") {
+            cameraZVelocity = 0;
         }
     }
 }
@@ -64,6 +77,7 @@ function animate() {
     controlCamera();    
     camera.position.y += cameraYVelocity;
     camera.position.x += cameraXVelocity;
+    camera.position.z += cameraZVelocity;
     renderer.render(scene, camera);
 }
 animate();
