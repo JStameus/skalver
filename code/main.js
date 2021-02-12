@@ -31,5 +31,12 @@ function updateToolbarDisplay() {
 // --------------------------
 
 // ---- APP ENTRY POINT ---
-loadTreeFile();
-animate();
+loadTreeFile("../resources/tree_test.json");
+setTimeout(() => {
+    initializeSkillTree();
+}, 500);
+setTimeout(() => {
+    spawnNodeObjects(selectedSkill);
+}, 1000);
+
+renderLoop();
