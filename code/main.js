@@ -1,5 +1,4 @@
 // ---- UI FUNCTIONALITY ----
-
 // Buttons & Event Listeners
 const newNodeButton = document.querySelector("#button_newNode");
 newNodeButton.addEventListener("click", () => {
@@ -34,9 +33,11 @@ function updateToolbarDisplay() {
 loadTreeFile("../resources/tree_test.json");
 setTimeout(() => {
     initializeSkillTree();
+    // TODO: Maybe this should be moved?
+    renderer.domElement.style.flex = 4;
 }, 500);
 setTimeout(() => {
     spawnNodeObjects(selectedSkill);
 }, 1000);
 
-renderLoop();
+runRenderLoop();

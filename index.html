@@ -10,21 +10,17 @@
 	</head>
 
 	<body>
-		<section class="window_generic" id="app_container_main">
-            <canvas id="app_viewport" class="window_generic">
-            </canvas>
-            <div id="app_toolbar" class="window_generic">
-                <button id="button_newNode">New Node</button>
-                <div id="toolbar_skillselector">
-                        <button id="button_prevSkill">Prev</button> 
-                        <div>
-                            <p id="ui_currentSkill">[CURRENT]</p>
-                        </div>
-                        <button id="button_nextSkill">Next</button> 
-                </div>
-                <button id="button_toggleMenu">Menu</button>
+        <div id="app_toolbar" class="window_generic">
+            <button id="button_newNode">New Node</button>
+            <div id="toolbar_skillselector">
+                    <button id="button_prevSkill">Prev</button> 
+                    <div>
+                        <p id="ui_currentSkill">[CURRENT]</p>
+                    </div>
+                    <button id="button_nextSkill">Next</button> 
             </div>
-		</section>
+            <button id="button_toggleMenu">Menu</button>
+        </div>
         <script src="code/three.js"></script>
         <script src="code/scenemanager.js"></script>
         <script src="code/skillmanager.js"></script>

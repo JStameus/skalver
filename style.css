@@ -16,21 +16,11 @@ html, body {
 }
 
 /* Main App Elements */
-#app_container_main {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-#app_viewport {
-   background-color: black;
-   flex: 8
-}
-
 #app_toolbar {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
     background-color: rgb(55, 61, 63);
-    flex: 1;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -45,6 +35,7 @@ html, body {
 
 #toolbar_skillselector p {
     flex: 4;
+    color: wheat;
 }
 
 #toolbar_skillselector button {

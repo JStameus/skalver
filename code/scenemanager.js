@@ -26,8 +26,8 @@ function spawnNodeObjects(skillTree) {
 // ----------------------------
 
 // ---- MAIN RENDER LOOP ----
-function renderLoop() {
-    requestAnimationFrame(renderLoop);
+function runRenderLoop() {
+    requestAnimationFrame(runRenderLoop);
 
     // Put all input checks here
     controlCamera();    
