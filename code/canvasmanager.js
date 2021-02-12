@@ -1,46 +1,69 @@
-class SkillNodeIcon {
-    constructor(category, text, pointValue, tags, posX, posY) {
-       // this.category = category;
-        this.text = text;
-        this.pointValue = pointValue;
-        this.tags = tags;
-        this.posX = posX;
-        this.posY = posY;
+// SCENE SETUP
+const viewport = document.querySelector("#app_viewport");
+// TODO: Can I render the scene on the canvas instead?
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+function spawnNodeObjects(skillTree) {
+    let offset = 0;
+    for(let i = 0; i < skillTree.nodes.length; i++) {
+        const geometry = new THREE.SphereGeometry(0.5, 16, 16);
+        const material = new THREE.MeshBasicMaterial({color: 0xe3e3e3});
+        const nodeObjectMesh = new THREE.Mesh(geometry, material);
+        scene.add(nodeObjectMesh);
+        nodeObjectMesh.position.y = offset;
+        offset += 10;
     }
 }
 
-const canvas = document.querySelector("#app_viewport");
-const ctx = canvas.getContext("2d");
-
-// TODO: These values should be updated with every frame
-var viewportWidth = canvas.clientWidth;
-var viewportHeight = canvas.clientHeight;
-
-const worldOrigin = {x: 0, y: 0};
-let cameraPosition = {x: 0, y: 0};
-
-let nodeSize = 70;
-let nodeSpacing = nodeSize + 60;
-
-function drawSkillTree(skillTree) {
-   for (let i = 0; i < skillTree.nodes.length; i++) {
-       console.log(`Drawing node: ${skillTree.nodes[i]}`);
-
-       viewportWidth = canvas.clientWidth;
-       viewportHeight = canvas.clientHeight;
-       
-       console.log(`Width: ${viewportWidth}`)
-       console.log(`Heigh: ${viewportHeight}`)
-
-       const skillNode = skillTree.nodes[i];
-       const skillIcon = new SkillNodeIcon(skillNode.text, skillNode.pointValue, skillNode.tags, 20, 20)
-
-       ctx.fillStyle = 'green';
-       ctx.fillRect(viewportHeight / 2, viewportWidth / 2, 50, 50);
-   }
+// CAMERA CONTROLS
+let cameraMoveSpeed = 0.5;
+let cameraXVelocity = 0;
+let cameraYVelocity = 0;
+let cameraSensitivity = 1;
+function controlCamera() {
+    window.onkeydown = (e) => {
+       if(e.key == "w" || e.key == "W") {
+           console.log("Moving FORWARD");
+           cameraYVelocity = cameraMoveSpeed;
+       } 
+       else if(e.key == "s" || e.key == "S") {
+           console.log("Moving BACKWARDS");
+           cameraYVelocity = -cameraMoveSpeed;
+       }
+       else if(e.key == "a" || e.key == "A") {
+           console.log("Moving LEFT");
+           cameraXVelocity = -cameraMoveSpeed;
+       }
+       else if(e.key == "d" || e.key == "D") {
+           console.log("Moving RIGHT");
+           cameraXVelocity = cameraMoveSpeed;
+       }
+    }
+    window.onkeyup = (e) => {
+        console.log("Stop!");
+        if(e.key == "w" || e.key == "W" || e.key == "s" || e.key == "S") {
+            cameraYVelocity = 0;
+        }
+        else if(e.key == "a" || e.key == "A" || e.key == "d" || e.key == "D") {
+            cameraXVelocity = 0;
+        }
+    }
 }
+// CAMERA START POSITION
+camera.position.z = 5;
 
-// TODO: These controls should probably be moved to app.js
-function moveCamera() {
-    
+// MAIN RENDER LOOP
+function animate() {
+    requestAnimationFrame(animate);
+
+    // Put all input checks here
+    controlCamera();    
+    camera.position.y += cameraYVelocity;
+    camera.position.x += cameraXVelocity;
+    renderer.render(scene, camera);
 }
+animate();
