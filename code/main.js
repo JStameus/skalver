@@ -1,3 +1,5 @@
+// ---- UI FUNCTIONALITY ----
+
 // Buttons & Event Listeners
 const newNodeButton = document.querySelector("#button_newNode");
 newNodeButton.addEventListener("click", () => {
@@ -26,3 +28,8 @@ const currentSkillDisplay = document.querySelector("#ui_currentSkill");
 function updateToolbarDisplay() {
     currentSkillDisplay.innerText = selectedSkill.name;
 }
+// --------------------------
+
+// ---- APP ENTRY POINT ---
+loadTreeFile();
+animate();
