@@ -32,9 +32,9 @@ function updateToolbarDisplay() {
 // ---- APP ENTRY POINT ---
 loadTreeFile("../resources/tree_test.json");
 setTimeout(() => {
+    //loadSceneGeometry();
     initializeSkillTree();
-    // TODO: Maybe this should be moved?
-    renderer.domElement.style.flex = 4;
+    updateToolbarDisplay();
 }, 500);
 setTimeout(() => {
     spawnNodeObjects(selectedSkill);

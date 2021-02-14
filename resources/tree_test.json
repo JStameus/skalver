@@ -4,26 +4,23 @@
         {
                 "name": "Programming",
                 "disciplines": null,
-                "points": 21,
                 "nodes": [
-                    {"text": "The difference between a signed and an unsigned integer...", "pointValue": 3, "tags": ["memory", "rust", "variables"]},
-                    {"text": "Strings are actually objects?", "pointValue": 4, "tags": ["objects", "datatypes", "variables"]}
+                    {"text": "The difference between a signed and an unsigned integer...", "tags": ["memory", "rust", "variables"], "xPos": null, "yPos": null},
+                    {"text": "Strings are actually objects?", "tags": ["objects", "datatypes", "variables"]}
                 ]
         },
         {
                 "name": "Cooking",
                 "disciplines": null,
-                "points": 14,
                 "nodes": [
-                    {"text": "You can boil vegetables to make vegetable stock.", "pointValue": 2, "tags": ["vegetables", "soup", "recycling"]}
+                    {"text": "You can boil vegetables to make vegetable stock.", "tags": ["vegetables", "soup", "recycling"],"xPos": null, "yPos": null}
                 ]
         },
         {
                 "name": "Woodworking",
                 "disciplines": null,
-                "points": 6,
                 "nodes": [
-                    {"text": "You can use an axe to chop wood.", "pointValue": 1, "tags": ["dumdum"]}
+                    {"text": "You can use an axe to chop wood.", "tags": ["dumdum"],"xPos": null, "yPos": null}
                 ]
         }
     ]
